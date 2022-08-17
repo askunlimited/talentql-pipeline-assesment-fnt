@@ -37,7 +37,7 @@ function fetchData(index) {
 }
 fetchData(getPage)
 
-//function to call the next data from API based on the page number
+//function to pass the next index to the fetchData function based on the page number
 function goNext(getPageOnNext) {
   getPageOnNext++
   prevBtn.disabled = false
@@ -50,7 +50,7 @@ nextBtn.onclick = function () {
   goNext(getPageOnNext)
 }
 
-// function to call the previous data from API based on the page number
+//function to pass the previous index to the fetchData function based on the page number
 function goPrevious(getPageOnPrev) {
   if (getPageOnPrev == 1) {
     prevBtn.disabled = true
