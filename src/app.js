@@ -36,3 +36,32 @@ function fetchData(index) {
     })
 }
 fetchData(getPage)
+
+//function to call the next data from API based on the page number
+function goNext(getPageOnNext) {
+  getPageOnNext++
+  prevBtn.disabled = false
+  fetchData(getPageOnNext)
+}
+
+// Add onclick event to next button
+nextBtn.onclick = function () {
+  const getPageOnNext = data.getAttribute('data-page')
+  goNext(getPageOnNext)
+}
+
+// function to call the previous data from API based on the page number
+function goPrevious(getPageOnPrev) {
+  if (getPageOnPrev == 1) {
+    prevBtn.disabled = true
+    return
+  }
+  getPageOnPrev--
+  fetchData(getPageOnPrev)
+}
+
+// Add onclick event to previous button
+prevBtn.onclick = function () {
+  const getPageOnPrev = data.getAttribute('data-page')
+  goPrevious(getPageOnPrev)
+}
